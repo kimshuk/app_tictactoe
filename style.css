@@ -1,0 +1,14 @@
+.container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.cell {
+    background-color: lightgreen;
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
