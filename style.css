@@ -5,33 +5,34 @@ body {
 .container {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    cursor: url(assets/images/pizza.gif), default;
 }
 
 #player-board {
-    float: right;
     border: solid black 1px;
-    width: 15vw;
+    width: 20vw;
     height: 20vh;
-    text-align: center;
-    top: 7%;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: flex-start;
+    margin: 5% 0 0 3%;
     display: flex;
-    align-content: space-around;
+    padding-top: 2%;
 }
 
 #game-board {
     display: flex;
     flex-direction: row;
     position: relative;
-    top: 7%;
-    left: 12%;
 }
 
 .game-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: space-around;
 }
 
 .game-cell {
