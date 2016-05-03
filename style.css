@@ -5,45 +5,86 @@ body {
 .container {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #player-board {
-    float: right;
     border: solid black 1px;
-    width: 15vw;
-    height: 20vh;
-    text-align: center;
-    top: 7%;
-    flex-direction: column;
-    justify-content: center;
+    width: 30vw;
+    height: 13vh;
+    flex-direction: row;
+    justify-content: space-around;
     display: flex;
-    align-content: space-around;
+    align-content: space-between;
+}
+
+#player-board div {
+    padding-top: 5%;
+    font-size: 120%;
 }
 
 #game-board {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     position: relative;
-    top: 7%;
-    left: 12%;
+    font-size: 200%;
+    margin-top: 8%;
 }
 
 .game-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: space-around;
+}
+
+#game-cell-0, #game-cell-1, #game-cell-2 {
+    border-right: solid black 1px;
+}
+
+#game-cell-6, #game-cell-7, #game-cell-8 {
+    border-left: solid black 1px;
+}
+
+#game-cell-0, #game-cell-3, #game-cell-6 {
+    border-bottom: solid black 1px;
+}
+
+#game-cell-2, #game-cell-5, #game-cell-8 {
+    border-top: solid black 1px;
 }
 
 .game-cell {
-    border: dotted black 1px;
     width: 20vw;
     height: 20vh;
-    left: 50%;
-    right: 50%;
-    transform: translate(-25%,-25%);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.game-cell:hover {
+    border-color: #C8001A;
+    border-radius: 50%;
+}
+
+.container > div.player1_bg {
+    background: url(), default;
+}
+
+.container > div.player2_bg {
+    background: url(), default;
+}
+
+.player1_cursor {
+    cursor: url(assets/images/pizza.gif), default;
+}
+
+.player2_cursor {
+    cursor: url(assets/images/pizza.gif), default;
 }
 
