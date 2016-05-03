@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+h1 {
+    margin: 0;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -13,17 +17,24 @@ body {
 
 #player-board {
     border: solid black 1px;
-    width: 30vw;
-    height: 13vh;
-    flex-direction: row;
-    justify-content: space-around;
+    width: 52vw;
+    height: 15vh;
+    flex-direction: column;
     display: flex;
     align-content: space-between;
+    align-items: center;
 }
 
 #player-board div {
-    padding-top: 5%;
     font-size: 120%;
+}
+
+.player-container {
+    display: flex;
+    width: 40vw;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-between;
 }
 
 #game-board {
@@ -68,23 +79,23 @@ body {
 }
 
 .game-cell:hover {
-    border-color: #C8001A;
+    background-color: #c63546;
     border-radius: 50%;
 }
 
 .container > div.player1_bg {
-    background: url(), default;
+    background: url(assets/images/piece_pepperoni.png), no-repeat;
 }
 
 .container > div.player2_bg {
-    background: url(), default;
+    background: url(assets/images/piece_green_pepper.png), no-repeat;
 }
 
 .player1_cursor {
-    cursor: url(assets/images/pizza.gif), default;
+    cursor: url(assets/images/piece_pepperoni.png), default;
 }
 
 .player2_cursor {
-    cursor: url(assets/images/pizza.gif), default;
+    cursor: url(assets/images/piece_green_pepper.png), default;
 }
 
