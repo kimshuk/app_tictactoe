@@ -1,12 +1,4 @@
-var player1 = {
-    piece: mushroomPiece
-},
-    player2 = {
-        piece: pepperoniPiece
-    },
-    currentPlayer = player1,
-    player = "X",
-    canClick = true,
+var canClick = true,
     playCount = 0,
     winArray = [
         ["0","1","2"],
@@ -21,16 +13,25 @@ var player1 = {
 
    mushroomPiece = {
     name: "mushroom",
-    image: "assets/piece_mushroom.png"
+    image: "assets/images/piece_mushroom.png"
 },
    pepperPiece = {
     name: "greenPepper",
-    image: "assets/piece_green_pepper.png"
+    image: "assets/images/piece_green_pepper.png"
 },
     pepperoniPiece = {
         name: "pepperoni",
-        image: "assets/piece_pepperoni.png"
-    };
+        image: "assets/images/piece_pepperoni.png"
+    },
+    player1 = {
+        name: "Player 1",
+        piece: mushroomPiece
+    },
+    player2 = {
+        name: "Player 2",
+        piece: pepperoniPiece
+    },
+    currentPlayer = player1;
 
 
 
@@ -40,7 +41,7 @@ function checkWin(playerPiece){
         var $cell = $(this);
         var $cellId = $cell.attr('id');
 
-        if($cell.text() === playerPiece){
+        if($cell.find("img").attr("src") === playerPiece.piece.image){
             playerArray.push($cellId[$cellId.length-1]);
             //we only need to save the last character of the id - the #
         }
@@ -66,7 +67,7 @@ function checkWin(playerPiece){
         //check if isWinner is true, if so, there was a win condition, current player wins
         if(isWinner === true){
             canClick = false;
-            var $h3WinMessage = $("<h3>"+ playerPiece + " wins!" + "</h3>");
+            var $h3WinMessage = $("<h3>"+ playerPiece.name + " wins!" + "</h3>");
             $("#player-board").append($h3WinMessage);
         }
     }
@@ -87,22 +88,24 @@ $(document).ready(function(){
 
         var $this = $(this);
 
-        if($this.html()) {
-                if (player === "X") {
+        if($this.html()==="") {
+            console.log(currentPlayer.piece.image);
+            //if the html is empty
+            // create an image element with a src equal to current player's piece image
+            var $img = $("<img>").attr("src", currentPlayer.piece.image);
+            //insert it into the cell clicked on
+            $this.html($img);
+            //update play count
+            playCount++;
+            // check for win
+            checkWin(currentPlayer);
+            // switch player to other player
+            if(currentPlayer === player1){
+                currentPlayer = player2;
+            }else {
+                currentPlayer = player1;
+            }
 
-                    $this.text("X");
-                    playCount++;
-                    checkWin(player);
-                    player = "O";
-
-                } else {
-
-                    $this.text("O");
-                    playCount++;
-                    checkWin(player);
-                    player = "X";
-
-                }
         }
     }
 
