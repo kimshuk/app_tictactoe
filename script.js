@@ -1,4 +1,11 @@
-var player = "X",
+var player1 = {
+    piece: mushroomPiece
+},
+    player2 = {
+        piece: pepperoniPiece
+    },
+    currentPlayer = player1,
+    player = "X",
     canClick = true,
     playCount = 0,
     winArray = [
@@ -10,7 +17,22 @@ var player = "X",
         ["2","5","8"],
         ["0","4","8"],
         ["2","4","6"]
-    ];
+    ],
+
+   mushroomPiece = {
+    name: "mushroom",
+    image: "assets/piece_mushroom.png"
+},
+   pepperPiece = {
+    name: "greenPepper",
+    image: "assets/piece_green_pepper.png"
+},
+    pepperoniPiece = {
+        name: "pepperoni",
+        image: "assets/piece_pepperoni.png"
+    };
+
+
 
 function checkWin(playerPiece){
     var playerArray = [];
@@ -58,23 +80,29 @@ function checkWin(playerPiece){
 }
 
 $(document).ready(function(){
+    //run function to assign piece objects to player objects (run again on new game button click
+
     $(".game-cell").on("click",function() {
         if (canClick === true) {
-        playCount++;
+
         var $this = $(this);
 
-        if (player === "X") {
+        if($this.html()) {
+                if (player === "X") {
 
-            $this.text("X");
-            checkWin(player);
-            player = "O";
+                    $this.text("X");
+                    playCount++;
+                    checkWin(player);
+                    player = "O";
 
-        } else {
+                } else {
 
-            $this.text("O");
-            checkWin(player);
-            player = "X";
+                    $this.text("O");
+                    playCount++;
+                    checkWin(player);
+                    player = "X";
 
+                }
         }
     }
 
