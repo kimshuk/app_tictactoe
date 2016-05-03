@@ -1,10 +1,6 @@
-.container {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-}
 
-.cell {
+
+.game-cell {
     background-color: lightgreen;
     height: 100px;
     width: 100px;
