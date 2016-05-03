@@ -33,6 +33,7 @@ body {
     position: relative;
     font-size: 200%;
     margin-top: 8%;
+    background-image: url('assets/images/game-grid.png');
 }
 
 .game-column {
@@ -73,11 +74,11 @@ body {
 }
 
 .container > div.player1_bg {
-    background: url(), default;
+    background: url(''), default;
 }
 
 .container > div.player2_bg {
-    background: url(), default;
+    background: url(''), default;
 }
 
 .player1_cursor {
