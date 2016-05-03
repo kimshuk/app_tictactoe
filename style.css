@@ -2,6 +2,15 @@ body {
     margin: 0;
 }
 
+.body-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-logo img{
+    width: 100%;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -34,6 +43,9 @@ body {
     font-size: 200%;
     margin-top: 8%;
     background-image: url('assets/images/game-grid.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .game-column {
