@@ -72,6 +72,7 @@ function checkWin(playerPiece){
             canClick = false;
             var $h3WinMessage = $("<h3>"+ playerPiece.name + " wins!" + "</h3>");
             $("#player-board").append($h3WinMessage);
+            $("#game-reset").show();
         }
     }
     if(playCount === 9 && isWinner === false){
@@ -83,8 +84,31 @@ function checkWin(playerPiece){
 
 }
 
+function resetGame(){
+    //reset player1 and player2 (when these have dynamic values)
+    //reset playCount
+    playCount = 0;
+    //remove localStorage item
+    localStorage.removeItem("gameState");
+    console.log(localStorage);
+    gameState = {
+        boardState: [null, null, null, null, null, null, null, null, null],
+        currentPlayer: player1
+    };
+    console.log(gameState);
+    //reset board
+    $(".game-cell").each(function(){
+       $(this).html(""); 
+    });
+    //hide reset button
+    $("#game-reset").hide();
+    //reset gameState <-- taken care of by removing localStorage?
+
+}
+
 $(document).ready(function(){
 
+    //populates the board with localStorage saved values if there are any
     $(".game-cell").each(function(){
         //get ID of cell div
         var $id = $(this).attr("id");
@@ -95,6 +119,9 @@ $(document).ready(function(){
             $(this).html($img);
         }
     });
+
+    //hide reset game button by default
+    $("#game-reset").hide();
 
     //run function to assign piece objects to player objects (run again on new game button click
     $(".game-cell").on("click",function() {
@@ -137,7 +164,12 @@ $(document).ready(function(){
     });
 
 
+    //click handler for reset button
+    $("#game-reset").on("click",function(){
 
+        resetGame();
+        canClick = true;
+    });
 
 
 
