@@ -105,19 +105,7 @@ $(document).ready(function(){
             }else {
                 currentPlayer = player1;
             }
-
         }
     }
-
-
     });
-
-
-
-
-
-
-
-
-
 });
