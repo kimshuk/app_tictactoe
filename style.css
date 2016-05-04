@@ -18,17 +18,27 @@ body {
 #form-board {
     position: absolute;
     float: left;
+    width: 19vw;
+    height: 46vh;
     padding-left: 3%;
     background-image: url('assets/images/form_background.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: center;
 }
 
 .form-container1, .form-container2 {
     position: absolute;
+    left: 22%;
+    top: 29%;
+    width: 60%;
+    color: #ffffff;
+    font-size: 155%;
 }
 
+.radio_img {
 
+}
 
 #player-board {
     width: 60vw;
