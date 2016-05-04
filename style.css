@@ -59,6 +59,22 @@ h1 {
     justify-content: center;
 }
 
+.button-reset {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid black;
+    padding: 10px 20px;
+}
+
+.button-reset:hover {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid black;
+    padding: 10px 20px;
+}
+
 #game-board {
     display: flex;
     flex-direction: row;
