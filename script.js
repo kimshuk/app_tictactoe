@@ -80,6 +80,7 @@ function checkWin(playerPiece){
         canClick = false;
         var $h3TieMessage = $("<h3>" + "game is a tie." + "</h3>");
         $("#player-board").append($h3TieMessage);
+        $("#game-reset").show();
     }
 
 }
@@ -90,20 +91,38 @@ function resetGame(){
     playCount = 0;
     //remove localStorage item
     localStorage.removeItem("gameState");
-    console.log(localStorage);
+    
+    //reset gameState 
     gameState = {
         boardState: [null, null, null, null, null, null, null, null, null],
         currentPlayer: player1
     };
-    console.log(gameState);
+    
     //reset board
     $(".game-cell").each(function(){
        $(this).html(""); 
     });
+
+    //reset win/tie messages
+    $("#player-board").find("h3").remove();
+    
     //hide reset button
     $("#game-reset").hide();
-    //reset gameState <-- taken care of by removing localStorage?
 
+}
+
+function setCursor(currentPlayer){
+    if(currentPlayer.piece.name === "pepperoni"){
+        //these class names are going to change
+        // plus there's no mushroom one right now :(
+        $(".container").removeClass("player2_cursor");
+        $(".container").addClass("player1_cursor");
+    } else if(currentPlayer.piece.name === "mushroom"){
+        $(".container").removeClass("player1_cursor");
+        $(".container").addClass("player2_cursor");
+    } else {
+        console.log("this will be for green pepper once we have all 3");
+    }
 }
 
 $(document).ready(function(){
@@ -122,6 +141,9 @@ $(document).ready(function(){
 
     //hide reset game button by default
     $("#game-reset").hide();
+
+    //set cursor initially, with player 1 for now
+    setCursor(player1);
 
     //run function to assign piece objects to player objects (run again on new game button click
     $(".game-cell").on("click",function() {
@@ -151,8 +173,10 @@ $(document).ready(function(){
             // switch player to other player
             if(gameState.currentPlayer === player1){
                 gameState.currentPlayer = player2;
+                setCursor(gameState.currentPlayer);
             }else {
                 gameState.currentPlayer = player1;
+                setCursor(gameState.currentPlayer);
             }
 
             localStorage.setItem("gameState", JSON.stringify(gameState));
@@ -162,7 +186,6 @@ $(document).ready(function(){
 
 
     });
-
 
     //click handler for reset button
     $("#game-reset").on("click",function(){
