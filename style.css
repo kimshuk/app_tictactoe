@@ -15,6 +15,31 @@ body {
     align-items: center;
 }
 
+#form-board {
+    position: absolute;
+    float: left;
+    width: 12vw;
+    height: 66vh;
+    padding-left: 9%;
+    background-image: url('assets/images/form_background.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.form-container1, .form-container2 {
+    position: absolute;
+    left: 22%;
+    top: 32%;
+    width: 60%;
+    color: #ffffff;
+    font-size: 120%;
+}
+
+.radio_img {
+    width: 30%;
+}
+
 #player-board {
     width: 60vw;
     height: 23vh;
@@ -22,7 +47,6 @@ body {
     display: flex;
     align-content: space-between;
     align-items: center;
-    animation: bounceIn 2s;
 }
 
 .body-header {
@@ -87,6 +111,7 @@ h1 {
     background-position: center;
     width: 65vw;
     height: 65vh;
+    animation: bounceIn 2s;
 }
 
 .game-column {
