@@ -1,14 +1,14 @@
 var canClick = true,
     playCount = 0,
     winArray = [
-        ["0","1","2"],
-        ["3", "4", "5"],
-        ["6", "7", "8"],
-        ["0","3","6"],
-        ["1","4","7"],
-        ["2","5","8"],
-        ["0","4","8"],
-        ["2","4","6"]
+        [0,1,2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]
     ],
 
    mushroomPiece = {
@@ -30,31 +30,34 @@ var canClick = true,
     player2 = {
         name: "Player 2",
         piece: pepperoniPiece
-    },
-    currentPlayer = player1;
+    };
 
+    var gameState = localStorage.getItem("gameState");
 
+    if(!gameState){
+        gameState = {
+        boardState: [null, null, null, null, null, null, null, null, null],
+        currentPlayer: player1
+        };
+    } else{
+        gameState = JSON.parse(gameState);
+    }
 
 function checkWin(playerPiece){
     var playerArray = [];
-    $(".game-cell").each(function(){//iterate through each cell on board and save IDs of cells with current player's pieces in them
-        var $cell = $(this);
-        var $cellId = $cell.attr('id');
-
-        if($cell.find("img").attr("src") === playerPiece.piece.image){
-            playerArray.push($cellId[$cellId.length-1]);
-            //we only need to save the last character of the id - the #
+    for(i=0; i < gameState.boardState.length; i++){
+        //loop through gameState array for existing img srcs
+        if(gameState.boardState[i] === playerPiece.piece.image){
+            // if there is a src match push that index to playerArray
+            playerArray.push(i);
+            // console.log(playerArray);
         }
-    });
-    // console.log("array after each: ", playerArray);
+    }
     for (i = 0; i < winArray.length; i++) {
-        // console.log("entering first for loop");
         //enter into each item in winArray
         isWinner = true;
-        // console.log(isWinner);
         //isWinner will be set to false whenever a subArray does not meet win condition
         for (j = 0; j < winArray[i].length; j++) {
-            // console.log("entering 2nd for loop");
             //check each item in subArrays of winArray
             if(playerArray.indexOf(winArray[i][j])===-1){
                 //if subArray[j] is not in playerArray, not a winner
@@ -81,31 +84,52 @@ function checkWin(playerPiece){
 }
 
 $(document).ready(function(){
-    //run function to assign piece objects to player objects (run again on new game button click
 
+    $(".game-cell").each(function(){
+        //get ID of cell div
+        var $id = $(this).attr("id");
+        var index = $id[$id.length-1];
+
+        if(gameState.boardState[index]){
+            var $img = $("<img>").attr("src", gameState.boardState[index]);
+            $(this).html($img);
+        }
+    });
+
+    //run function to assign piece objects to player objects (run again on new game button click
     $(".game-cell").on("click",function() {
         if (canClick === true) {
 
         var $this = $(this);
 
-        if($this.html()==="") {
-            console.log(currentPlayer.piece.image);
+        var $id = $this.attr("id");
+
+        var index = $id[$id.length-1];
+
+        if(!gameState.boardState[index]) {
+            console.log(gameState.currentPlayer.piece.image);
             //if the html is empty
             // create an image element with a src equal to current player's piece image
-            var $img = $("<img>").attr("src", currentPlayer.piece.image);
+
+            gameState.boardState[index] = gameState.currentPlayer.piece.image;
+
+            var $img = $("<img>").attr("src", gameState.boardState[index]);
+
             //insert it into the cell clicked on
             $this.html($img);
             //update play count
             playCount++;
             // check for win
-            checkWin(currentPlayer);
+            checkWin(gameState.currentPlayer);
             // switch player to other player
-            if(currentPlayer === player1){
-                currentPlayer = player2;
+            if(gameState.currentPlayer === player1){
+                gameState.currentPlayer = player2;
             }else {
-                currentPlayer = player1;
+                gameState.currentPlayer = player1;
             }
 
+            localStorage.setItem("gameState", JSON.stringify(gameState));
+            console.log(localStorage.getItem("gameState"));
         }
     }
 
