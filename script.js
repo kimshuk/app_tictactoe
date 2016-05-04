@@ -87,6 +87,18 @@ function checkWin(playerPiece){
 
 function resetGame(){
     //reset player1 and player2 (when these have dynamic values)
+
+    //set player1 to last player of last game
+
+    if(gameState.currentPlayer === player1){
+        playerHolder = player1;
+    } else {
+        playerHolder = player2;
+    }
+
+    console.log("current player " , gameState.currentPlayer);
+    console.log("player holder " , playerHolder)
+
     //reset playCount
     playCount = 0;
     //remove localStorage item
@@ -95,7 +107,7 @@ function resetGame(){
     //reset gameState 
     gameState = {
         boardState: [null, null, null, null, null, null, null, null, null],
-        currentPlayer: player1
+        currentPlayer: playerHolder
     };
     
     //reset board
@@ -105,7 +117,15 @@ function resetGame(){
 
     //reset win/tie messages
     $("#player-board").find("h3").remove();
-    
+
+    //reset cursors
+    $("#game-board").removeClass("pepperoni_cursor");
+    $("#game-board").removeClass("mushroom_cursor");
+    $("#game-board").removeClass("greenpepper_cursor");
+
+    //set cursor and player1 to currentPlayer in temp holder var
+    setCursor(gameState.currentPlayer);
+
     //hide reset button
     $("#game-reset").hide();
 
@@ -113,15 +133,23 @@ function resetGame(){
 
 function setCursor(currentPlayer){
     if(currentPlayer.piece.name === "pepperoni"){
-        //these class names are going to change
-        // plus there's no mushroom one right now :(
-        $(".container").removeClass("player2_cursor");
-        $(".container").addClass("player1_cursor");
+        console.log(currentPlayer.piece.name);
+        // remove mushroom and greenpepper, add pepperoni
+        $("#game-board").removeClass("mushroom_cursor");
+        $("#game-board").removeClass("greenpepper_cursor");
+        $("#game-board").addClass("pepperoni_cursor");
     } else if(currentPlayer.piece.name === "mushroom"){
-        $(".container").removeClass("player1_cursor");
-        $(".container").addClass("player2_cursor");
+        console.log(currentPlayer.piece.name);
+        //remove greenpepper and pepperoni, add mushroom
+        $("#game-board").removeClass("pepperoni_cursor");
+        $("#game-board").removeClass("greenpepper_cursor");
+        $("#game-board").addClass("mushroom_cursor");
     } else {
-        console.log("this will be for green pepper once we have all 3");
+        console.log(currentPlayer.piece.name);
+        //else green pepper cursor
+        $("#game-board").removeClass("pepperoni_cursor");
+        $("#game-board").removeClass("mushroom_cursor");
+        $("#game-board").addClass("greenpepper_cursor");
     }
 }
 
@@ -143,6 +171,7 @@ $(document).ready(function(){
     $("#game-reset").hide();
 
     //set cursor initially, with player 1 for now
+    console.log("initial cursor name " , gameState.currentPlayer.piece.name);
     setCursor(player1);
 
     //run function to assign piece objects to player objects (run again on new game button click

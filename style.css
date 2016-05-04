@@ -104,7 +104,7 @@ h1 {
 }
 
 .mushroom_cursor {
-    cursor: url('assets/images/piece_green_pepper.png'), default;
+    cursor: url('assets/images/piece_mushroom.png'), default;
 }
 
 @keyframes bounceIn {
