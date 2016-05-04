@@ -2,15 +2,6 @@ body {
     margin: 0;
 }
 
-.body-header {
-    display: flex;
-    flex-direction: row;
-}
-
-.game-logo img{
-    width: 100%;
-}
-
 .container {
     width: 100vw;
     height: 100vh;
@@ -21,31 +12,54 @@ body {
 }
 
 #player-board {
-    border: solid black 1px;
-    width: 30vw;
-    height: 13vh;
-    flex-direction: row;
-    justify-content: space-around;
+    width: 60vw;
+    height: 23vh;
+    flex-direction: column;
     display: flex;
     align-content: space-between;
+    align-items: center;
 }
 
-#player-board div {
-    padding-top: 5%;
-    font-size: 120%;
+.body-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 60vw;
+}
+
+.game-logo {
+    width: 17%;
+    padding-right: 5%;
+}
+
+.game-logo img{
+    width: 100%;
+}
+
+.player-container div {
+    font-size: 130%;
+}
+
+.player-container {
+    display: flex;
+    width: 40vw;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-between;
 }
 
 #game-board {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    position: relative;
     font-size: 200%;
-    margin-top: 8%;
+    margin-top: 2%;
     background-image: url('assets/images/game-grid.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    width: 75vw;
+    height: 65vh;
 }
 
 .game-column {
@@ -55,49 +69,33 @@ body {
     align-content: space-around;
 }
 
-#game-cell-0, #game-cell-1, #game-cell-2 {
-    border-right: solid black 1px;
-}
-
-#game-cell-6, #game-cell-7, #game-cell-8 {
-    border-left: solid black 1px;
-}
-
-#game-cell-0, #game-cell-3, #game-cell-6 {
-    border-bottom: solid black 1px;
-}
-
-#game-cell-2, #game-cell-5, #game-cell-8 {
-    border-top: solid black 1px;
-}
-
 .game-cell {
-    width: 20vw;
-    height: 20vh;
-    position: relative;
+    width: 15vw;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .game-cell:hover {
-    border-color: #C8001A;
+    background-color: rgba(198, 47, 59, 0.63);
     border-radius: 50%;
+    transition: ease 0.3s;
 }
 
 .container > div.player1_bg {
-    background: url(''), default;
+    background: url(assets/images/piece_pepperoni.png), no-repeat;
 }
 
 .container > div.player2_bg {
-    background: url(''), default;
+    background: url(assets/images/piece_green_pepper.png), no-repeat;
 }
 
 .player1_cursor {
-    cursor: url(assets/images/pizza.gif), default;
+    cursor: url(assets/images/piece_pepperoni.png), default;
 }
 
 .player2_cursor {
-    cursor: url(assets/images/pizza.gif), default;
+    cursor: url(assets/images/piece_green_pepper.png), default;
 }
 
