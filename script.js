@@ -86,29 +86,14 @@ function checkWin(playerPiece){
 }
 
 function resetGame(){
-    //reset player1 and player2 (when these have dynamic values)
-
-    //set player1 to last player of last game
-
-    if(gameState.currentPlayer === player1){
-        playerHolder = player1;
-    } else {
-        playerHolder = player2;
-    }
-
-    console.log("current player " , gameState.currentPlayer);
-    console.log("player holder " , playerHolder)
 
     //reset playCount
     playCount = 0;
     //remove localStorage item
     localStorage.removeItem("gameState");
     
-    //reset gameState 
-    gameState = {
-        boardState: [null, null, null, null, null, null, null, null, null],
-        currentPlayer: playerHolder
-    };
+    //reset boardState
+    gameState.boardState = [null, null, null, null, null, null, null, null, null];
     
     //reset board
     $(".game-cell").each(function(){
