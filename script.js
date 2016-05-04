@@ -92,7 +92,7 @@ $(document).ready(function(){
             console.log(currentPlayer.piece.image);
             //if the html is empty
             // create an image element with a src equal to current player's piece image
-            var $img = $("<img>").attr("src", currentPlayer.piece.image);
+            var $img = $("<img>").attr("src",  currentPlayer.piece.image);
             //insert it into the cell clicked on
             $this.html($img);
             //update play count
