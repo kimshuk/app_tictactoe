@@ -18,8 +18,9 @@ body {
 #form-board {
     position: absolute;
     float: left;
-    width: 12vw;
-    height: 66vh;
+    width: 7vw;
+    height: 60vh;
+    left: 3%;
     padding-left: 9%;
     background-image: url('assets/images/form_background.jpg');
     background-repeat: no-repeat;
@@ -29,8 +30,9 @@ body {
 
 .form-container1, .form-container2 {
     position: absolute;
-    left: 22%;
+    left: 18%;
     top: 32%;
+    text-align: left;
     width: 60%;
     color: #ffffff;
     font-size: 120%;
