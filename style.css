@@ -92,10 +92,10 @@ body {
 }
 
 .player1_cursor {
-    cursor: url(assets/images/piece_pepperoni.png), default;
+    cursor: url('assets/images/piece_pepperoni.png'), default;
 }
 
 .player2_cursor {
-    cursor: url(assets/images/piece_green_pepper.png), default;
+    cursor: url('assets/images/piece_mushroom.png'), default;
 }
 
