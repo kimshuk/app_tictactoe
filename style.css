@@ -139,15 +139,15 @@ h1 {
 }
 
 .pepperoni_cursor {
-    cursor: url('assets/images/piece_pepperoni.png'), default;
+    cursor: url('assets/images/cursor_pepperoni.png'), default;
 }
 
 .greenpepper_cursor {
-    cursor: url('assets/images/piece_green_pepper.png'), default;
+    cursor: url('assets/images/cursor_green_pepper.png'), default;
 }
 
 .mushroom_cursor {
-    cursor: url('assets/images/piece_mushroom.png'), default;
+    cursor: url('assets/images/cursor_mushroom.png'), default;
 }
 
 @keyframes bounceIn {
