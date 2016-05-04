@@ -18,9 +18,9 @@ body {
 #form-board {
     position: absolute;
     float: left;
-    width: 19vw;
-    height: 46vh;
-    padding-left: 3%;
+    width: 12vw;
+    height: 66vh;
+    padding-left: 9%;
     background-image: url('assets/images/form_background.jpg');
     background-repeat: no-repeat;
     background-size: contain;
@@ -30,14 +30,14 @@ body {
 .form-container1, .form-container2 {
     position: absolute;
     left: 22%;
-    top: 29%;
+    top: 32%;
     width: 60%;
     color: #ffffff;
-    font-size: 155%;
+    font-size: 120%;
 }
 
 .radio_img {
-
+    width: 30%;
 }
 
 #player-board {
