@@ -183,8 +183,6 @@ $(document).ready(function(){
             console.log(localStorage.getItem("gameState"));
         }
     }
-
-
     });
 
     //click handler for reset button
@@ -193,10 +191,4 @@ $(document).ready(function(){
         resetGame();
         canClick = true;
     });
-
-
-
-
-
-
 });
