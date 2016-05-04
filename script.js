@@ -154,6 +154,8 @@ $(document).ready(function(){
 
     //hide reset game button by default
     $("#game-reset").hide();
+    checkWin(player1);
+    checkWin(player2);
 
     //set cursor initially, with player 1 for now
     console.log("initial cursor name " , gameState.currentPlayer.piece.name);
@@ -185,14 +187,13 @@ $(document).ready(function(){
             // check for win
             checkWin(gameState.currentPlayer);
             // switch player to other player
-            if(gameState.currentPlayer === player1){
+            if(gameState.currentPlayer.name === player1.name){
                 gameState.currentPlayer = player2;
                 setCursor(gameState.currentPlayer);
             }else {
                 gameState.currentPlayer = player1;
                 setCursor(gameState.currentPlayer);
             }
-
             localStorage.setItem("gameState", JSON.stringify(gameState));
             console.log(localStorage.getItem("gameState"));
         }
