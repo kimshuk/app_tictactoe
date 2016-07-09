@@ -15,6 +15,41 @@ body {
     align-items: center;
 }
 
+#form-board {
+    position: absolute;
+    float: left;
+    width: 15vw;
+    height: 90vh;
+    left: 2%;
+    padding-left: 9%;
+    background-image: url('assets/images/form_background.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.form-container1, .form-container2 {
+    position: absolute;
+    left: 18%;
+    top: 32%;
+    text-align: center;
+    width: 60%;
+    color: #ffffff;
+    font-size: 120%;
+}
+
+.form-input {font-size: 110%;width: 13vw;}
+
+.form-area {
+    /* padding-bottom: 0%; */
+}
+
+.radio_img {
+    width: 26%;
+    vertical-align: middle;
+    padding: 3% 0;
+}
+
 #player-board {
     width: 60vw;
     height: 23vh;
@@ -22,7 +57,6 @@ body {
     display: flex;
     align-content: space-between;
     align-items: center;
-    animation: bounceIn 2s;
 }
 
 .body-header {
@@ -59,6 +93,22 @@ h1 {
     justify-content: center;
 }
 
+.button-reset {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid black;
+    padding: 10px 20px;
+}
+
+.button-reset:hover {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid black;
+    padding: 10px 20px;
+}
+
 #game-board {
     display: flex;
     flex-direction: row;
@@ -71,6 +121,7 @@ h1 {
     background-position: center;
     width: 65vw;
     height: 65vh;
+    animation: bounceIn 2s;
 }
 
 .game-column {
@@ -96,15 +147,15 @@ h1 {
 }
 
 .pepperoni_cursor {
-    cursor: url('assets/images/piece_pepperoni.png'), default;
+    cursor: url('assets/images/cursor_pepperoni.png'), default;
 }
 
 .greenpepper_cursor {
-    cursor: url('assets/images/piece_green_pepper.png'), default;
+    cursor: url('assets/images/cursor_green_pepper.png'), default;
 }
 
 .mushroom_cursor {
-    cursor: url('assets/images/piece_green_pepper.png'), default;
+    cursor: url('assets/images/cursor_mushroom.png'), default;
 }
 
 @keyframes bounceIn {
