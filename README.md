@@ -1,3 +1,10 @@
-# Tic Tac Toe
+# Tic-Tac-Toe
 
-Alpha version of tic tac toppings, developed using procedural Javascript. 
+### Overview
+
+This is a classic tic-tac-toe game that two players play.
+
+### Features I have to implement: 
+- [ ] **Use Object Oriented Javascript** 
+
+### [LIVE DEMO]()
