@@ -4,7 +4,11 @@
 
 This is a classic tic-tac-toe game that two players play.
 
-### Features I have to implement: 
-- [ ] **Use Object Oriented Javascript** 
+### Features I will implement in future: 
 
-### [LIVE DEMO]()
+- [ ] **Dynamic win condition**
+- [ ] **Multiple board sizes**
+- [ ] **Use Object Oriented Javascript** 
+- [ ] **Login and Logout**
+
+### [LIVE DEMO](http://jeesookim.com/app_tictactoe/)
