@@ -71,7 +71,8 @@ function checkWin(playerPiece){
         if(isWinner === true){
             canClick = false;
             var $h3WinMessage = $("<h3>"+ playerPiece.name + " wins!" + "</h3>");
-            $("#player-board").append($h3WinMessage);
+            $("#victory_modal p").append($h3WinMessage);
+            $('#victory_modal').modal('show');
             $("#game-reset").show();
         }
     }
@@ -79,13 +80,15 @@ function checkWin(playerPiece){
         //if all cells have been filled and there's no winner, it's a tie
         canClick = false;
         var $h3TieMessage = $("<h3>" + "game is a tie." + "</h3>");
-        $("#player-board").append($h3TieMessage);
+        $("#victory_modal p").append($h3TieMessage);
+        $('#victory_modal').modal('show');
         $("#game-reset").show();
     }
 
 }
 
 function resetGame(){
+    $('#victory_modal h3').remove();
 
     //reset playCount
     playCount = 0;
@@ -110,9 +113,6 @@ function resetGame(){
 
     //set cursor and player1 to currentPlayer in temp holder var
     setCursor(gameState.currentPlayer);
-
-    //hide reset button
-    $("#game-reset").hide();
 
 }
 
@@ -152,8 +152,6 @@ $(document).ready(function(){
         }
     });
 
-    //hide reset game button by default
-    $("#game-reset").hide();
     checkWin(player1);
     checkWin(player2);
 

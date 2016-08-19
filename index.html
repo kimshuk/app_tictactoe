@@ -6,13 +6,12 @@
         <meta charset="utf-8">
         <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>-->
-        <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href="style.css" type="text/css" rel="stylesheet"/>
-        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>-->
+
         <script src="script.js"></script>
 
     </head>
@@ -53,6 +52,14 @@
                     </div>
                 </section>
                 <section id="game-board" class="game-board">
+                    <div class="modal fade" id="victory_modal">
+                        <div class="modal-dialog modal-sm">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <p style="text-align: center"></p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="game-column">
                         <div id="game-cell-0" class="game-cell"></div>
                         <div id="game-cell-1" class="game-cell"></div>
@@ -73,5 +80,6 @@
         </main>
 
     </body>
+
 
 </html>
