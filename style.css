@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    font-family: 'Lobster', cursive;
-    background-image: url('assets/images/background2.jpg');
+    font-family: 'Walter Turncoat', cursive;
+    background-image: url('assets/images/old-wood-texture.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -67,14 +67,13 @@ body {
     height: 11vh;
     align-items: center;
 }
-
-.game-logo {
-    width: 17%;
-    padding-right: 5%;
+.page-title {
+    color: #ffffff;
 }
 
-.game-logo img{
-    width: 100%;
+.player-1,
+.player-2 {
+    color: #eabc6b;
 }
 
 h1 {
